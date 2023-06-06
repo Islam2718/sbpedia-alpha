@@ -6,7 +6,7 @@
     </a>
 </div>
 
-<p align="center">
+<p align="center" style="margin-top:50px; ">
     <a href="https://github.com/laravel/framework/actions">
         <img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
     </a>
