@@ -1,10 +1,10 @@
-<p align="center" style="text-align:center;">
+<div align="center" style="text-align:center;">
     <a href="https://laravel.com" target="_blank">
         <img src="https://th.bing.com/th/id/R.1939adc1a6dc9e25954a77684c590457?rik=ALgGE7VuOqkGNg&riu=http%3a%2f%2fsocialbusinesspedia.com%2fimg%2flogo%2fsocial-business-pedia-logo.png&ehk=HS76CdbpMPzkMe1jz3OHCSEYKOqWtOTvFSV1yvtn8nI%3d&risl=&pid=ImgRaw&r=0" width="100px" alt="Laravel Logo">
         <h4>Social Business Pedia</h4>
         <small>SBPEDIA-ALPHA</small>
     </a>
-</p>
+</div>
 
 <p align="center">
     <a href="https://github.com/laravel/framework/actions">
