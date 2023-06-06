@@ -5,8 +5,8 @@
         <small>SBPEDIA-ALPHA</small>
     </a>
 </div>
-
-<p align="center" style="margin-top:50px; ">
+<br/><br/>
+<div align="center" style="margin-top:50px; ">
     <a href="https://github.com/laravel/framework/actions">
         <img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status">
     </a>
@@ -19,7 +19,7 @@
     <a href="https://packagist.org/packages/laravel/framework">
         <img src="https://img.shields.io/packagist/l/laravel/framework" alt="License">
     </a>
-</p>
+</div>
 
 ## About SBPEDIA-ALPHA
 
