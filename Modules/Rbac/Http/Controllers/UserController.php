@@ -16,11 +16,12 @@ class UserController extends Controller
      */
     public function index()
     {
-        if(Auth::check())
-        $users = User::all();
-        // $loggedInUser = Auth::user();
-       // dd($users);
-        return view('rbac::users.index');
+        // data    
+        $data = array(
+            'users'=> User::all()
+        );
+       // dd($data);
+        return view('rbac::users.index',$data);
     }
 
     /**
