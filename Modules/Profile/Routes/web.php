@@ -11,8 +11,6 @@
 |
 */
 
-Route::prefix('event')->group(function() {
-    Route::get('/', 'EventController@index');
-    Route::get('/events/create', 'EventController@index');
-    
+Route::prefix('profile')->group(function() {
+    Route::get('/', 'ProfileController@index');
 });

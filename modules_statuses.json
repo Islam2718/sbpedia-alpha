@@ -2,5 +2,6 @@
     "News": true,
     "Event": true,
     "Auth": true,
-    "Rbac": true
+    "Rbac": true,
+    "Profile": true
 }
