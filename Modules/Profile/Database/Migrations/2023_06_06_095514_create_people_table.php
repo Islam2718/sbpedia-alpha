@@ -15,18 +15,33 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
-            $table->id();
-            $table->id();
-            $table->id();
-            $table->id();
-            $table->id();
-            $table->id();
-            $table->id();
-            $table->id();
-            $table->id();
+            $table->integer('signup_category_id');
+            $table->integer('signup_sub_category_id');
+            $table->string('first_name');
+            $table->string('last_name');
+            $table->string('sur_name');
+            $table->string('email');
+            $table->string('identity');
+            $table->string('gender');
+            $table->string('organization_name');
+            $table->bigInteger('organization_id');
 
+            $table->date('dob');
+            $table->string('profile_image');
+            $table->string('cover_image');
+            $table->string('online_profile');
 
-            $table->timestamps();
+            $table->text('interested_in');
+            $table->text('about_myself');
+
+            $table->string('facebook');
+            $table->string('twitter');
+            $table->string('linkedin');
+            $table->string('google');
+
+            $table->tinyInteger('is_organization_root_user');
+            $table->integer('status');
+            $table->timestamps(); //created-at, updated-at 
         });
     }
 
