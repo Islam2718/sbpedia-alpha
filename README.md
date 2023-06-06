@@ -35,7 +35,7 @@ Social business pedia is a web application developed using laravel 9. This appli
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Installation Guide
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
@@ -43,9 +43,63 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Tables & Schemas
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+<hr/>
+users (
+    $table->id();
+    $table->string('user_type');
+    $table->string('person_id');
+    $table->string('username');
+    $table->string('email')->unique();
+    $table->timestamp('email_verified_at');
+    $table->text('secret_question');
+    $table->text('write_answer');
+    $table->text('secret_question_answer');
+    $table->string('left_after_complete');
+    $table->dateTime('last_login');
+    $table->string('last_login_ip');
+    $table->string('last_login_browser');
+    $table->string('created_ip');
+    $table->tinyInteger('status')->default('0')->comments('0 = new, 1 = active, 2 = suspended');
+    $table->text('old_data');
+    $table->bigInteger('user_group_id');
+    $table->bigInteger('user_sub_group_id');
+    $table->tinyInteger('is_old_database');
+    $table->rememberToken();
+    $table->timestamps(); // create_at, updated_at    
+)
+<hr/>
+people(
+    $table->id();
+    $table->integer('signup_category_id');
+    $table->integer('signup_sub_category_id');
+    $table->string('first_name');
+    $table->string('last_name');
+    $table->string('sur_name');
+    $table->string('email');
+    $table->string('identity');
+    $table->string('gender');
+    $table->string('organization_name');
+    $table->bigInteger('organization_id');
+
+    $table->date('dob');
+    $table->string('profile_image');
+    $table->string('cover_image');
+    $table->string('online_profile');
+
+    $table->text('interested_in');
+    $table->text('about_myself');
+
+    $table->string('facebook');
+    $table->string('twitter');
+    $table->string('linkedin');
+    $table->string('google');
+
+    $table->tinyInteger('is_organization_root_user');
+    $table->integer('status');
+    $table->timestamps(); //created-at, updated-at     
+ )
 
 ### Premium Partners
 
