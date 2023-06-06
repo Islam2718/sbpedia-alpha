@@ -1,4 +1,6 @@
 {
     "News": true,
-    "Event": true
+    "Event": true,
+    "Auth": true,
+    "Rbac": true
 }
