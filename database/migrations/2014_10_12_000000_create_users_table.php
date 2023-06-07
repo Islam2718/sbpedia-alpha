@@ -28,11 +28,11 @@ return new class extends Migration
             $table->string('last_login_ip');
             $table->string('last_login_browser');
             $table->string('created_ip')->nullable();
-            $table->tinyInt('status')->default('0')->comments('0 = new, 1 = active, 2 = suspended');
+            $table->tinyInteger('status')->default('0')->comments('0 = new, 1 = active, 2 = suspended');
             $table->text('old_data')->nullable();
-            $table->bigInt('user_group_id')->nullable();
-            $table->bigInt('user_sub_group_id')->nullable();
-            $table->tinyInt('is_old_database')->nullable();
+            $table->bigInteger('user_group_id')->nullable();
+            $table->bigInteger('user_sub_group_id')->nullable();
+            $table->tinyInteger('is_old_database')->nullable();
             $table->string('created_ip')->nullable();
             $table->rememberToken();
             $table->timestamps(); // create_at, updated_at
