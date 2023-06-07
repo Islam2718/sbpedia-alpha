@@ -116,7 +116,18 @@ people(
  )
 
 ### Developer Guide (Hinths)
-//composing...
+
+module create command : php artisan module:make Module_name
+
+controller create into modules : php artisan module:make-controller Controller_name Module_name
+
+model create into modules : php artisan module:make-model Model_name Module_name
+
+migrate tables in modules : php artisan module:migrate Module_name
+
+migrate refresh in modules : php artisan module:migrate-refresh Module_name
+
+migration in modules : php artisan module:make-migration create_table_names_table Module_name
 
 ## License
 

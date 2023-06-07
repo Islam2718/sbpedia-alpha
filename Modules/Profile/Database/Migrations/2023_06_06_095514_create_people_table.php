@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->integer('signup_category_id');
             $table->integer('signup_sub_category_id');
             $table->string('first_name');
@@ -42,6 +43,8 @@ return new class extends Migration
             $table->tinyInteger('is_organization_root_user');
             $table->integer('status');
             $table->timestamps(); //created-at, updated-at 
+
+             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
