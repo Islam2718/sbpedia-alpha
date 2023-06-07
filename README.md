@@ -45,14 +45,14 @@ If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Lar
 
 ## Modules
 
-    - [Auth - for authentication</li>]
-    - [Profile]
-    - [Rbac - Role based user access control]
-    - [Event]
-    - [News]
-    - [SB Wiki]
-    - [SB Wiki]
-    - [...]
+    - Auth - for authentication</li>
+    - Profile
+    - Rbac - Role based user access control
+    - Event
+    - News
+    - SB Wiki
+    - SB Wiki
+    - ...
 
 ## Tables & Schemas
 
