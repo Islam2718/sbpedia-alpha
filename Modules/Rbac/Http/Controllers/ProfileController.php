@@ -2,6 +2,7 @@
 
 namespace Modules\Rbac\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -53,6 +54,11 @@ class ProfileController extends Controller
      */
     public function edit($id)
     {
+//        dd($id);
+        $data = array(
+            'user' => User::find($id),
+        );
+        //dd($data['user']);
         return view('rbac::profile.form');
     }
 
