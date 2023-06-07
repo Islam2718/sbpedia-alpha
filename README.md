@@ -44,16 +44,15 @@ You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you
 If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
 ## Modules
-    <ol>
-        <li>Auth - for authentication</li>
-        <li>Profile</li>
-        <li>Rbac - Role based user access control</li>
-        <li>Event</li>
-        <li>News</li>
-        <li>SB Wiki</li>
-        <li>SB Wiki</li>
-        <li>...</li>
-    </ol>
+
+    -[Auth - for authentication</li>]
+    -[Profile]
+    -[Rbac - Role based user access control]
+    -[Event]
+    -[News]
+    -[SB Wiki]
+    -[SB Wiki]
+    -[...]
 
 ## Tables & Schemas
 
