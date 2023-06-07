@@ -37,16 +37,32 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Installation Guide
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Step1: Clone project. 
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Step2: Create Database and update .env file for database.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Step3: Run command into terminal [command] - composer install
+
+Step4: Run command into terminal [command] - php artisan migrate
+
+Step5: Run command into terminal [command] - php artisan serve
+
+## Modules
+
+    - Auth - for authentication</li>
+    - Profile
+    - Rbac - Role based user access control
+    - Event
+    - News
+    - SB Wiki
+    - SB Wiki
+    - ...
 
 ## Tables & Schemas
 
-<hr/>
+
 users (
+
     $table->id();
     $table->string('user_type');
     $table->string('person_id');
@@ -69,8 +85,10 @@ users (
     $table->rememberToken();
     $table->timestamps(); // create_at, updated_at    
 )
-<hr/>
+
+
 people(
+
     $table->id();
     $table->integer('signup_category_id');
     $table->integer('signup_sub_category_id');
@@ -82,53 +100,27 @@ people(
     $table->string('gender');
     $table->string('organization_name');
     $table->bigInteger('organization_id');
-
     $table->date('dob');
     $table->string('profile_image');
     $table->string('cover_image');
     $table->string('online_profile');
-
     $table->text('interested_in');
     $table->text('about_myself');
-
     $table->string('facebook');
     $table->string('twitter');
     $table->string('linkedin');
     $table->string('google');
-
     $table->tinyInteger('is_organization_root_user');
     $table->integer('status');
     $table->timestamps(); //created-at, updated-at     
  )
 
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### Developer Guide (Hinths)
+//composing...
 
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Powerd By - 
+Grameen Communication [Visit-Website](https://grameen.technology).
