@@ -90,7 +90,7 @@
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="{{ route('user.create') }}" class="menu-link">
+                  <a href="{{ route('users.create') }}" class="menu-link">
                     <div data-i18n="Without navbar">Add User</div>
                   </a>
                 </li>
