@@ -18,16 +18,16 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->integer('signup_category_id')->nullable();
             $table->integer('signup_sub_category_id')->nullable();
-            $table->string('first_name');
-            $table->string('last_name');
-            $table->string('sur_name');
+            $table->string('first_name')->nullable();
+            $table->string('last_name')->nullable();
+            $table->string('sur_name')->nullable();
             $table->string('email');
             $table->string('identity')->nullable();
-            $table->string('gender');
+            $table->string('gender')->nullable();
             $table->string('organization_name')->nullable();
             $table->bigInteger('organization_id')->nullable();
 
-            $table->date('dob');
+            $table->date('dob')->nullable();
             $table->string('profile_image')->nullable();
             $table->string('cover_image')->nullable();
             $table->string('online_profile')->nullable();
@@ -42,7 +42,7 @@ return new class extends Migration
 
             $table->tinyInteger('is_organization_root_user')->default(0);
             $table->integer('status')->default(0);
-            $table->timestamps(); //created-at, updated-at 
+            $table->timestamps(); //created-at, updated-at
 
              $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
