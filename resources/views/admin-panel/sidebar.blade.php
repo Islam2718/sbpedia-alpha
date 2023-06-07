@@ -85,22 +85,22 @@
 
               <ul class="menu-sub">
                 <li class="menu-item">
-                  <a href="{{ route('users') }}" class="menu-link">
+                  <a href="{{ route('users.index') }}" class="menu-link">
                     <div data-i18n="Without menu">Users</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-without-navbar.html" class="menu-link">
+                  <a href="{{ route('user.create') }}" class="menu-link">
                     <div data-i18n="Without navbar">Add User</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-container.html" class="menu-link">
+                  <a href="#" class="menu-link">
                     <div data-i18n="Container">Roles</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a href="layouts-fluid.html" class="menu-link">
+                  <a href="#" class="menu-link">
                     <div data-i18n="Fluid">Permissions</div>
                   </a>
                 </li>
