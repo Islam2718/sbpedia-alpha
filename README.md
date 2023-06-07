@@ -38,9 +38,13 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Installation Guide
 
 Step1: Clone project. 
+
 Step2: Create Database and update .env file for database.
+
 Step3: Run command into terminal [command] - composer install
+
 Step4: Run command into terminal [command] - php artisan migrate
+
 Step5: Run command into terminal [command] - php artisan serve
 
 ## Modules
