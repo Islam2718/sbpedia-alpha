@@ -30,7 +30,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('rbac::create');
+        return view('rbac::users.create');
     }
 
     /**
