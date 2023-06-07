@@ -16,6 +16,6 @@ Route::prefix('rbac')->group(function() {
 
     // user routes
     Route::get('/users', 'UserController@index')->name('users.index');
-    Route::get('/users/create', 'UserController@create')->name('user.create');
+    Route::get('/users/create', 'UserController@create')->name('users.create');
 
 });
