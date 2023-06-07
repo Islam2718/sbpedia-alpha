@@ -18,4 +18,8 @@ Route::prefix('rbac')->group(function() {
     Route::get('/users', 'UserController@index')->name('users.index');
     Route::get('/users/create', 'UserController@create')->name('users.create');
 
+    // profile routes
+    Route::get('/profile/{id}/edit', 'ProfileController@edit')->name('users.profile.edit');
+
+
 });
