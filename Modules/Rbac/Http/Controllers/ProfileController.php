@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Profile\Entities\People;
 
 class ProfileController extends Controller
 {
@@ -57,9 +58,10 @@ class ProfileController extends Controller
 //        dd($id);
         $data = array(
             'user' => User::find($id),
+            'profile'=> People::where('user_id', $id)->first()
         );
         //dd($data['user']);
-        return view('rbac::profile.form');
+        return view('rbac::profile.form', $data);
     }
 
     /**
