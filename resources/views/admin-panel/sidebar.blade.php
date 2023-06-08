@@ -3,7 +3,7 @@
             <div class="app-brand demo">
                 <a href="index.html" class="app-brand-link">
                     <span class="app-brand-logo demo">
-                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAS1BMVEVHcEwIjWsPdXsJiW4SaoIHkGkIj2oHj2oIjWsIj2oUZoQTaoITaYIIj2oIj2oIj2oIj2oGkmgTaYMJi2wTaoINfXYPd3oHkWkMgnM8EF4EAAAAGXRSTlMACRczSySkl3tRhtL53P/vx2L/taP/6vnqYb+GTgAAALlJREFUeAHd0IeNwzAMBVCq9+92F2X/SSN3iPACyUNnB+lLCCnokdKKGmOt88EQI3RM2W8FBc0wTt0cneZ5XvaQx66Eu/1vbv6nYxVOy5E3aW5egzjKC07jFpJ7Hp4ODv2MPV/bgIPCzRPFls7vCk+XEZdqZEu/BqAIugTcXGzXVQCB6HEEhi0N2z+1ghkkdTyYQIxFxxEnRuA2Uo9XFEMPhMVhUPRsqth0+Y5wAGqX54zj8zllBf2gD+lXECplW3CTAAAAAElFTkSuQmCC" alt="">
+                        <img src="{{asset('admin-assets/img/icon.png')}}" alt="">
                     </span>
                     <span class="app-brand-text demo menu-text fw-bolder ms-2">SBPedia</span>
                 </a>
@@ -53,6 +53,13 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <!-- news -->
+                <li class="menu-item">
+                    <a href="{{ route('news.news-list') }}" class="menu-link">
+                        <i class="menu-icon tf-icons bx bx-collection"></i>
+                        <div data-i18n="Basic">News</div>
+                    </a>
                 </li>
 
                 <!-- Layouts -->

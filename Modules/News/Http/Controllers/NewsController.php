@@ -17,9 +17,18 @@ class NewsController extends Controller
         return view('news::index');
     }
 
+<<<<<<< HEAD
     public function allNews()
     {
         return view('news::index');
+=======
+    // news list 
+    public function allNews()
+    {
+        // echo 'done'; die();
+        // dd('list'); die();
+        return view('news::news.list');
+>>>>>>> 329cda8dbca3a4cdf6ee4b07a5d5bcb689f3578a
     }
 
     /**
