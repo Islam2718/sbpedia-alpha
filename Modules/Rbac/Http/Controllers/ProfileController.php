@@ -7,6 +7,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Profile\Entities\People;
+use Modules\Profile\Entities\Profile;
 
 class ProfileController extends Controller
 {
@@ -72,7 +73,34 @@ class ProfileController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $profile = People::find($id);
+        $profile->signup_category_id = $request->signup_category_id;
+        $profile->signup_sub_category_id = $request->signup_sub_category_id;
+        $profile->first_name = $request->first_name;
+        $profile->last_name = $request->last_name;
+        $profile->sur_name = $request->sur_name;
+        $profile->email = $request->email;
+        $profile->identity = $request->identity;
+        $profile->gender = $request->gender;
+        $profile->organization_name = $request->organization_name;
+        $profile->organization_id = $request->organization_id;
+        $profile->dob = $request->dob;
+        $profile->profile_image = '';
+        $profile->cover_image = '';
+        $profile->online_profile = $request->online_profile;
+        $profile->interested_in = $request->interested_in;
+        $profile->about_myself = $request->about_myself;
+        $profile->facebook = $request->facebook;
+        $profile->twitter = $request->twitter;
+        $profile->linkedin = $request->linkedin;
+        $profile->google = $request->google;
+        $profile->is_organization_root_user = $request->is_organization_root_user;
+        $profile->status = 0;
+
+        // dd($profile);
+
+        $profile->save();
+        return redirect()->route('users.profile.edit', $profile->id);
     }
 
     /**

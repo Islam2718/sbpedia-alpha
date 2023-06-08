@@ -20,6 +20,7 @@ Route::prefix('rbac')->group(function() {
 
     // profile routes
     Route::get('/profile/{userId}/edit', 'ProfileController@edit')->name('users.profile.edit');
+    Route::post('/profile/{userId}/update', 'ProfileController@update')->name('users.profile.update');
 
     //roles routes
     Route::get('/roles',[\Modules\Rbac\Http\Controllers\RoleController::class, 'index'])->name('roles.index');
