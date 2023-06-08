@@ -28,7 +28,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('rbac::create');
+        return view('rbac::permissions.create');
     }
 
     /**
@@ -39,6 +39,11 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         //
+        $permission = new Permission();
+        $permission->name = $request->name;
+        $permission->save();
+
+        return redirect()->route('permissions.index');
     }
 
     /**

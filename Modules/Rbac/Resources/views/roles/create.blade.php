@@ -2,7 +2,10 @@
 @include('admin-panel.sidebar')
 
 <div class="card my-3 px-4">
-    <h5 class="card-header">User Info :)</h5>
+    <div>
+        <a class="btn btn-primary mb-lg-n2" href="{{route('roles.index')}}">Roles</a>
+    </div>
+    <h5 class="card-header">Add Role</h5>
     <div class="card-body row">
         <form method="POST" action="{{route('roles.store')}}">
             @csrf

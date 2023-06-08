@@ -5,6 +5,7 @@ namespace Modules\Rbac\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
@@ -61,7 +62,28 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        return view('rbac::edit');
+        // dd($id);
+        $data = array(
+            'role' => Role::find($id),
+            'permissions' => Permission::all()
+        );
+        return view('rbac::roles.edit', $data);
+    }
+
+    /**
+     * Show the form for assigining the permissions.
+     * @param int $id
+     * @return Renderable
+     */
+    public function assignPermissions(Request $request, $id)
+    {
+        $role = Role::where('id', $id)->get();
+        // dd($role);
+//        if ($role->hasPermissionTo($request->permission)){
+//            return back()->with('message', 'Permission exists');
+//        }
+        $role->givePermissionTo($request->permission);
+        return redirect()->route('roles.index');
     }
 
     /**
