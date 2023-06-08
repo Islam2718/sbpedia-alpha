@@ -5,6 +5,7 @@ namespace Modules\Rbac\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
@@ -14,7 +15,10 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('rbac::index');
+        $data = array(
+            'roles' => Role::all()
+        );
+        return view('rbac::roles.index', $data);
     }
 
     /**
@@ -23,7 +27,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('rbac::create');
+        return view('rbac::roles.create');
     }
 
     /**
@@ -33,7 +37,11 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $role = new Role();
+        $role->name = $request->name;
+        $role->save();
+
+        return redirect('/roles');
     }
 
     /**

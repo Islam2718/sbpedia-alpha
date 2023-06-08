@@ -13,4 +13,6 @@
 
 Route::prefix('news')->group(function() {
     Route::get('/', 'NewsController@index');
+
+
 });

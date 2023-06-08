@@ -17,6 +17,11 @@ class NewsController extends Controller
         return view('news::index');
     }
 
+    public function allNews()
+    {
+        return view('news::index');
+    }
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable

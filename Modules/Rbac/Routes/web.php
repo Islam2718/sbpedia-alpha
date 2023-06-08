@@ -21,5 +21,17 @@ Route::prefix('rbac')->group(function() {
     // profile routes
     Route::get('/profile/{userId}/edit', 'ProfileController@edit')->name('users.profile.edit');
 
+    //roles routes
+    Route::get('/roles',[\Modules\Rbac\Http\Controllers\RoleController::class, 'index'])->name('roles.index');
+    Route::get('/roles/create',[\Modules\Rbac\Http\Controllers\RoleController::class, 'create'])->name('roles.create');
+    Route::post('/roles/store',[\Modules\Rbac\Http\Controllers\RoleController::class, 'store'])->name('roles.store');
+
+
+
+    //permission routes
+    Route::get('/permissions',[\Modules\Rbac\Http\Controllers\PermissionController::class, 'index'])->name('permission.manage');
+
+
+
 
 });
