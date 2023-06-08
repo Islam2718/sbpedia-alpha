@@ -17,6 +17,14 @@ class NewsController extends Controller
         return view('news::index');
     }
 
+    // news list 
+    public function allNews()
+    {
+        // echo 'done'; die();
+        // dd('list'); die();
+        return view('news::news.list');
+    }
+
     /**
      * Show the form for creating a new resource.
      * @return Renderable

@@ -5,5 +5,6 @@
     <img src="https://socialbusinesspedia.com/img/logo/social-business-pedia-logo.png" class="img img-fluid">
     <h1 style="color:#088F6A">Social Business Pedia</h1>
     <p>Module: News</p>
+    <h1>Dashboard</h1>
 </div>
 @endsection

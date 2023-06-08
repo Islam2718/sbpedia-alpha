@@ -28,9 +28,9 @@
                             <img src="../admin-assets/img/avatars/5.png" alt="Avatar" class="rounded-circle"
                                 style="width:22px;">
                             &nbsp;
-                            {{$usersData->name}}
+                            {{$userData->name}}
                         </td>
-                        <td>{{$usersData->email}}</td>
+                        <td>{{$userData->email}}</td>
                         <td><span class="badge bg-label-primary me-1">Admin</span></td>
                         <td><span class="badge bg-label-success me-1">Active</span></td>
                         <td>

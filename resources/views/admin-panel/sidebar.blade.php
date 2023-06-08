@@ -54,6 +54,13 @@
                         </li>
                     </ul>
                 </li>
+                <!-- news -->
+                <li class="menu-item">
+                    <a href="{{ route('news.news-list') }}" class="menu-link">
+                        <i class="menu-icon tf-icons bx bx-collection"></i>
+                        <div data-i18n="Basic">News</div>
+                    </a>
+                </li>
 
                 <!-- Layouts -->
                 <li class="menu-item">
