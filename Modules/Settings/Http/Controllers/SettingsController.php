@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\News\Http\Controllers;
+namespace Modules\Settings\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
-class NewsController extends Controller
+class SettingsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +14,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('news::index');
-    }
-    
-    // news list 
-    public function allNews()
-    {
-        // $data = array(
-        //     'newsArray' => News::all()
-        // );
-        return view('news::news.list');
+        return view('settings::index');
     }
 
     /**
@@ -32,7 +23,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news::news.form');
+        return view('settings::create');
     }
 
     /**
@@ -52,7 +43,7 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        return view('news::show');
+        return view('settings::show');
     }
 
     /**
@@ -62,7 +53,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        return view('news::edit');
+        return view('settings::edit');
     }
 
     /**

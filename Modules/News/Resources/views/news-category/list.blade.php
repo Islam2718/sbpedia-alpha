@@ -2,11 +2,11 @@
 @include('admin-panel.sidebar')
 <!-- users content  -->
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">News /</span> List</h4>
-    
+    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a hef="#">News</a> /</span> <a href="#">Category</a></h4>
+
     <!-- Basic Bootstrap Table -->
     <div class="card">
-        <h5 class="card-header">Table Basic</h5>
+        <h5 class="card-header">News Category</h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
@@ -19,16 +19,13 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                @if(count($users) > 0)
+                @if(count($categoryArray) > 0)
                 <tbody class="table-border-bottom-0">     
-                    @foreach($users as $userData)                                   
+                    @foreach($categoryArray as $newsCategoryData)                                   
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
                         <td>
-                            <img src="../admin-assets/img/avatars/5.png" alt="Avatar" class="rounded-circle"
-                                style="width:22px;">
-                            &nbsp;
-                            {{$userData->name}}
+                            {{$newsCategoryData->alias}}
                         </td>
                         <td>{{$userData->email}}</td>
                         <td><span class="badge bg-label-primary me-1">Admin</span></td>
@@ -51,6 +48,7 @@
         </div>
     </div>
     <!--/ Basic Bootstrap Table -->
+
 </div>
 <!-- users content end  -->
 @include('admin-panel.footer')

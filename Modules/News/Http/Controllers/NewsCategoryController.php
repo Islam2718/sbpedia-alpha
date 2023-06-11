@@ -5,8 +5,10 @@ namespace Modules\News\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\News\Entities\NewsCategory;
+use Modules\News\Entities\NewsCategoryLanguage;
 
-class NewsController extends Controller
+class NewsCategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,16 +16,11 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('news::index');
-    }
-    
-    // news list 
-    public function allNews()
-    {
-        // $data = array(
-        //     'newsArray' => News::all()
-        // );
-        return view('news::news.list');
+        $data = array(
+            'categoryArray' => NewsCategoryLanguage::all()
+        );
+        // dd($data); die(); 
+        return view('news::news-category.list', $data);
     }
 
     /**
@@ -32,7 +29,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news::news.form');
+        return view('news::create');
     }
 
     /**
