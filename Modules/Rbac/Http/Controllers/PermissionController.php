@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PermissionController extends Controller
 {
@@ -63,7 +64,11 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        return view('rbac::edit');
+            $data = array(
+                'permission' => Permission::find($id)
+            );
+        // dd($permission);
+        return view('rbac::permissions.edit', $data);
     }
 
     /**
@@ -75,6 +80,12 @@ class PermissionController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $permission = Permission::find($id);
+        $permission->name = $request->name;
+        $permission->save();
+
+        Alert::info('Updated', 'Info updated successsfully');
+        return redirect('/rbac/permissions');
     }
 
     /**
