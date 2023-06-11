@@ -3,5 +3,6 @@
     "Event": true,
     "Auth": true,
     "Rbac": true,
-    "Profile": true
+    "Profile": true,
+    "Settings": true
 }
