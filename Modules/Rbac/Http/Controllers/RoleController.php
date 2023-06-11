@@ -5,11 +5,15 @@ namespace Modules\Rbac\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\Traits\HasRoles;
+use Spatie\Permission\Traits\HasPermissions;
 
 class RoleController extends Controller
 {
+    use HasRoles, HasPermissions;
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -77,12 +81,15 @@ class RoleController extends Controller
      */
     public function assignPermissions(Request $request, $id)
     {
-        $role = Role::where('id', $id)->get();
-        // dd($role);
-//        if ($role->hasPermissionTo($request->permission)){
-//            return back()->with('message', 'Permission exists');
-//        }
+        // dd($request->permission);
+        $role = Role::where('id', $id)->first();
+        //dd($role);
+        if ($role->hasPermissionTo($request->permission)){
+            return back()->with('message', 'Permission exists');
+        }
+       // Auth::user()->givePermissionTo($request->permission);
         $role->givePermissionTo($request->permission);
+//       dd($role);
         return redirect()->route('roles.index');
     }
 
