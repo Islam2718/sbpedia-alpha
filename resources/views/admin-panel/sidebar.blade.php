@@ -54,12 +54,35 @@
                         </li>
                     </ul>
                 </li>
-                <!-- news -->
+                <!-- News -->
                 <li class="menu-item">
-                    <a href="{{ route('news.news-list') }}" class="menu-link">
-                        <i class="menu-icon tf-icons bx bx-collection"></i>
-                        <div data-i18n="Basic">News</div>
+                    <a href="javascript:void(0);" class="menu-link menu-toggle">
+                        <i class="menu-icon tf-icons bx bx-layout"></i>
+                        <div data-i18n="Layouts">News</div>
                     </a>
+
+                    <ul class="menu-sub">
+                        <li class="menu-item">
+                            <a href="{{ route('news.news-list') }}" class="menu-link">
+                                <div data-i18n="Without menu">All News </div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="{{ route('news.create') }}" class="menu-link">
+                                <div data-i18n="Without navbar">Add News</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <div data-i18n="Container">News Category</div>
+                            </a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#" class="menu-link">
+                                <div data-i18n="Fluid">Languages</div>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <!-- Layouts -->

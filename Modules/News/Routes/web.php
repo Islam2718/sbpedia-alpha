@@ -17,4 +17,5 @@ Route::prefix('news')->group(function() {
 
     // news admin routes
     Route::get('/news/list', 'NewsController@allNews')->name('news.news-list');
+    Route::get('/news/create', 'NewsController@create')->name('news.create');
 });
