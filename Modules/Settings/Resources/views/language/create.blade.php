@@ -17,13 +17,13 @@
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="basic-default-fullname">Name</label>
-                            <input name="name" type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe">
+                            <input required name="name" type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe">
                         </div>
                     </div>
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="basic-default-fullname">Alias</label>
-                            <input name="alias" type="text" class="form-control" id="basic-default-fullname" placeholder="Alias !">
+                            <input required name="alias" type="text" class="form-control" id="basic-default-fullname" placeholder="Alias !">
                         </div>
                     </div>
                     <div class="col-xl">
@@ -44,7 +44,7 @@
                         <div class="mb-2 my-3">
                             <label class="form-label" for="basic-default-fullname">Status</label>
                             <div class="form-check">
-                                <input name="status" class="form-check-input" type="radio" value="1" id="active">
+                                <input name="status" class="form-check-input"  checked type="radio" value="1" id="active">
                                 <label class="form-check-label" for="active"> Active </label>
                             </div>
                             <div class="form-check">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="my-3">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <button class="btn btn-danger">Cancel</button>
+                        <a href="{{ route('settings.language') }}" class="btn btn-danger">Cancel</a>
                     </div>
                 </div>
             </div>

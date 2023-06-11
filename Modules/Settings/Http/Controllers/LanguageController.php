@@ -1,10 +1,12 @@
 <?php
-
 namespace Modules\Settings\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+// swit alerts 
+use RealRashid\SweetAlert\Facades\Alert;
+// models 
 use Modules\Settings\Entities\Language;
 
 class LanguageController extends Controller
@@ -48,7 +50,8 @@ class LanguageController extends Controller
         $languageModel->status = $request->status;
         $languageModel->is_default = $request->is_default;
 
-        $languageModel->save();
+        $languageModel->save();        
+        Alert::success('New Language', 'Successfully Saved !');
         return redirect()->route('settings.language.create');
     }
 
@@ -93,6 +96,7 @@ class LanguageController extends Controller
         $languageModel->is_default = $request->is_default;
 
         $languageModel->save();
+        Alert::success('Language', 'Successfully Updated !');
         return redirect()->route('settings.language.edit', $id);
     }
 
@@ -103,6 +107,7 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
+        Alert::question('Are You Sure!', 'to Delete this language?');
         $languageModel = Language::find($id);
         $languageModel->delete();
         return redirect()->route('settings.language');

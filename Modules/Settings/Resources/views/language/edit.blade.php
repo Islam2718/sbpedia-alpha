@@ -60,7 +60,7 @@
                     </div>
                     <div class="my-3">
                         <button type="submit" class="btn btn-primary">Update</button>
-                        <button class="btn btn-danger">Cancel</button>
+                        <a href="{{ route('settings.language') }}" class="btn btn-danger">Cancel</a>
                     </div>
                 </div>
             </div>
