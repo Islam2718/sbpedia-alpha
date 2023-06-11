@@ -14,14 +14,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('news::index');
+        return view('news::index', $data);
     }
 
     // news list 
     public function allNews()
     {
-        // echo 'done'; die();
-        // dd('list'); die();
         return view('news::news.list');
     }
 
@@ -31,7 +29,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news::create');
+        return view('news::news.form');
     }
 
     /**
