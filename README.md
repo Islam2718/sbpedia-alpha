@@ -129,6 +129,12 @@ migrate refresh in modules : php artisan module:migrate-refresh Module_name
 
 migration in modules : php artisan module:make-migration create_table_names_table Module_name
 
+
+## roles and permissions are managed by Spatie
+  
+  documentation url : https://spatie.be/docs/laravel-permission/v5/introduction
+
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

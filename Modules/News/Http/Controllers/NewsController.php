@@ -16,7 +16,7 @@ class NewsController extends Controller
     {
         return view('news::index', $data);
     }
-
+    
     // news list 
     public function allNews()
     {

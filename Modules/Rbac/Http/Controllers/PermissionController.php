@@ -5,6 +5,8 @@ namespace Modules\Rbac\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class PermissionController extends Controller
 {
@@ -14,7 +16,10 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        return view('rbac::index');
+        $data = array(
+            'permissions' => Permission::all()
+        );
+        return view('rbac::permissions.index', $data);
     }
 
     /**
@@ -23,7 +28,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        return view('rbac::create');
+        return view('rbac::permissions.create');
     }
 
     /**
@@ -34,6 +39,11 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         //
+        $permission = new Permission();
+        $permission->name = $request->name;
+        $permission->save();
+
+        return redirect()->route('permissions.index');
     }
 
     /**

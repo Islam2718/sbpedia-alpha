@@ -3,8 +3,9 @@
 <!-- users content  -->
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Rbac /</span> Profile</h4>
-    
-    <form>
+
+    <form method="post" action="{{route('users.profile.update', $user->id)}}">
+        @csrf
         <!-- USER INFO -->
         <div class="card my-3 px-4">
             <h5 class="card-header">User Info :)</h5>
@@ -18,7 +19,7 @@
                     <div class="col-xl">
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Email</label>
-                        <input value="{{$user->email}}" type="text" class="form-control" id="basic-default-fullname" readonly placeholder="example@email.com">
+                        <input name="email" value="{{$user->email}}" type="text" class="form-control" id="basic-default-fullname" readonly placeholder="example@email.com">
                     </div>
                 </div>
             </div>
@@ -54,15 +55,15 @@
                             <label class="form-label" for="gender">gender</label>
                             <div class="">
                                 <div class="form-check form-check-inline mt-3">
-                                    <input name="name" value="{{$profile->gender}}" class="form-check-input" type="radio" id="gender_male" value="MALE">
+                                    <input {{ $profile->gender == 'MALE' ? 'checked' : ''}} name="gender"  class="form-check-input" type="radio" id="gender_male" value="MALE">
                                     <label class="form-check-label" for="gender_male">Male</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input name="gender" value="{{$profile->gender}}" class="form-check-input" type="radio" id="gender_female" value="FEMALE">
+                                    <input {{ $profile->gender == 'FEMALE' ? 'checked' : ''}} name="gender" class="form-check-input" type="radio" id="gender_female" value="FEMALE">
                                     <label class="form-check-label" for="gender_female">Female</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input name="gender" value="{{$profile->gender}}" class="form-check-input" type="radio" id="gender_others" value="OTHERS">
+                                    <input {{ $profile->gender == 'OTHERS' ? 'checked' : ''}} name="gender" class="form-check-input" type="radio" id="gender_others" value="OTHERS">
                                     <label class="form-check-label" for="gender_others">Others</label>
                                 </div>
                             </div>

@@ -13,7 +13,8 @@
 
 Route::prefix('news')->group(function() {
     Route::get('/', 'NewsController@index');
-    
+
+
     // news admin routes
     Route::get('/news/list', 'NewsController@allNews')->name('news.news-list');
     Route::get('/news/create', 'NewsController@create')->name('news.create');
