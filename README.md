@@ -56,7 +56,8 @@ Step5: Run command into terminal [command] - php artisan serve
     - News
     - SB Wiki
     - SB Wiki
-    - ...
+    - Settings
+        --Language settings
 
 ## Tables & Schemas
 

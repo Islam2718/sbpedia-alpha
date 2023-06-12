@@ -41,6 +41,8 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
+        // null and space validation check 
+        $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
         //
         $languageModel = new Language();
         $languageModel->name = $request->name;
@@ -86,6 +88,9 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // null and space validation check 
+        $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
+
         $languageModel = Language::find($id);
         $languageModel->name = $request->name;
         $languageModel->alias = $request->alias;
