@@ -31,7 +31,7 @@
                         <td>{{$languageData->name}}</td>
                         <td>{{$languageData->alias}}</td>
                         <td>{{$languageData->flag}}</td>
-                        <td>{{$languageData->status}}</td>
+                        <td>{{$languageData->status == 1 ? 'Active': 'In Active'}}</td>
                         <td>{{$languageData->is_default == 1 ? 'Yes': 'No'}}</td>
                         <td>
                             <a href="{{ route('settings.language.edit', $languageData->id) }}" class="btn btn-sm btn-primary">Edit</a>

@@ -44,11 +44,11 @@
                         <div class="mb-2 my-3">
                             <label class="form-label" for="basic-default-fullname">Status</label>
                             <div class="form-check">
-                                <input  {{ $languageByIdArray->status == 0 ? 'checked' : ''}} name="status" class="form-check-input" type="radio" value="0" id="active">
+                                <input  {{ $languageByIdArray->status == 1 ? 'checked' : ''}} name="status" class="form-check-input" type="radio" value="1" id="active">
                                 <label class="form-check-label" for="active"> Active </label>
                             </div>
                             <div class="form-check">
-                                <input {{ $languageByIdArray->status == 1 ? 'checked' : ''}} name="status" class="form-check-input" type="radio" value="0" id="inactive">
+                                <input {{ $languageByIdArray->status == 0 ? 'checked' : ''}} name="status" class="form-check-input" type="radio" value="0" id="inactive">
                                 <label class="form-check-label" for="inactive"> In Active </label>
                             </div>
                         </div>
