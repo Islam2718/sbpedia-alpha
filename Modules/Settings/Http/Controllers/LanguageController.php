@@ -41,6 +41,8 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
+        // null and space validation check 
+        $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
         //
         $languageModel = new Language();
         $languageModel->name = $request->name;
@@ -86,15 +88,29 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $languageModel = Language::find($id);
+        // null and space validation check 
+        $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
 
+        $languageModel = Language::find($id);
         $languageModel->name = $request->name;
         $languageModel->alias = $request->alias;
         $languageModel->flag = $request->flag;
         $languageModel->description = $request->description;
         $languageModel->status = $request->status;
-        $languageModel->is_default = $request->is_default;
 
+        if($request->is_default == 1){
+            Language::where('id', '>', 0)->update(['is_default'=> 0]);
+            $languageModel->is_default = $request->is_default;
+        }else{
+            $count = count(Language::where([['id','!=', $id], ['is_default', 1]])->get()->skip(1));
+            if($count == 0){
+                Language::where('id', '>', 0)->update(['is_default'=> 0]);
+                Language::first()->update(['is_default'=> 1]);
+            }else{
+                Language::where('id', '>', 0)->update(['is_default'=> 0]);
+                $languageModel->is_default = $request->is_default;                
+            }
+        }
         $languageModel->save();
         Alert::success('Language', 'Successfully Updated !');
         return redirect()->route('settings.language.edit', $id);

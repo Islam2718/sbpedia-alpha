@@ -9,7 +9,7 @@ class Language extends Model
 {
     use HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = ['is_default'];
     
     protected static function newFactory()
     {
