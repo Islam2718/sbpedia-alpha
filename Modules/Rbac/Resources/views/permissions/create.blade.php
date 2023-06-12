@@ -13,7 +13,8 @@
             <div class="col-xl">
                 <div class="mb-2">
                     <label class="form-label" for="basic-default-fullname">Name</label>
-                    <input name="name" type="text" class="form-control" required id="basic-default-fullname" placeholder="permission name">
+                    <input name="name" type="text" class="form-control" id="basic-default-fullname" placeholder="permission name">
+                    <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>
                 </div>
             </div>
             <div class="col-xl">

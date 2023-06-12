@@ -40,6 +40,9 @@ class PermissionController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required|regex:/^\S*$/u',
+        ]);
         $permission = new Permission();
         $permission->name = $request->name;
         $permission->save();

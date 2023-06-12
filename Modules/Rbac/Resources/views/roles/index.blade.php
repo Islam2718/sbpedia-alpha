@@ -5,8 +5,8 @@
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a href="{{ route('roles.index') }}">Rbac</a> /</span> <a href="{{ route('users.index') }}">Roles</a></h4>
 
     <!-- Basic Bootstrap Table -->
-    <div>
-        <a href="{{route('roles.create')}}" class="btn btn-primary">Create</a>
+    <div class="p-2">
+        <a href="{{route('roles.create')}}" class="btn btn-sm btn-primary">Create</a>
     </div>
     <div class="card">
         <h5 class="card-header">Table Basic</h5>
@@ -27,8 +27,8 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$i++}}</strong></td>
                             <td>{{$role->name}}</td>
                             <td>
-                                <a href="{{route('roles.assign', $role->id)}}" class="btn btn-primary">Assign</a>
-                                <a href="#" class="btn btn-danger">Delete</a>
+                                <a href="{{route('roles.assign', $role->id)}}" class="btn btn-sm btn-primary">Assign</a>
+                                <a href="{{route('roles.edit', $role->id)}}" class="btn btn-sm btn-warning">Edit</a>
                             </td>
                         </tr>
                     @endforeach

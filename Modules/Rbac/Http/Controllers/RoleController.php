@@ -42,6 +42,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|regex:/^\S*$/u',
+        ]);
         $role = new Role();
         $role->name = $request->name;
         $role->save();
@@ -60,6 +63,20 @@ class RoleController extends Controller
     }
 
     /**
+     * Show the form for editing the specified resource.
+     * @param int $id
+     * @return Renderable
+     */
+    public function edit($id)
+    {
+        $data = array(
+            'role' => Role::find($id),
+            'permissions' => Permission::all()
+        );
+        return view('rbac::roles.edit', $data);
+    }
+
+    /**
      * Show the form for assigning the specified resource.
      * @param int $id
      * @return Renderable
@@ -71,8 +88,9 @@ class RoleController extends Controller
             'role' => Role::find($id),
             'permissions' => Permission::all()
         );
-        return view('rbac::roles.edit', $data);
+        return view('rbac::roles.assign', $data);
     }
+
 
     /**
      * Show the form for assigining the permissions.
@@ -102,6 +120,14 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required|regex:/^\S*$/u',
+        ]);
+        $role = Role::find($id);
+        $role->name = $request->name;
+        $role->save();
+
+        return redirect('/rbac/roles');
     }
 
     /**
