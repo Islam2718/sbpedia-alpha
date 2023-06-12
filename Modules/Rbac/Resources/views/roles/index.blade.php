@@ -27,7 +27,7 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$i++}}</strong></td>
                             <td>{{$role->name}}</td>
                             <td>
-                                <a href="{{route('roles.edit', $role->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{route('roles.assign', $role->id)}}" class="btn btn-primary">Assign</a>
                                 <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>

@@ -19,7 +19,6 @@
                     <th>Actions</th>
                 </tr>
                 </thead>
-                @if(count($permissions) > 0)
                     <tbody class="table-border-bottom-0">
                     @php $i = 1 @endphp
                     @foreach($permissions as $permission)
@@ -27,19 +26,12 @@
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$i++}}</strong></td>
                             <td>{{$permission->name}}</td>
                             <td>
-                                <a href="#" class="btn btn-primary">Edit</a>
+                                <a href="{{route('permissions.edit', $permission->id)}}" class="btn btn-primary">Edit</a>
                                 <a href="#" class="btn btn-danger">Delete</a>
                             </td>
                         </tr>
                     @endforeach
                     </tbody>
-                @else
-                    <tbody>
-                    <tr>
-                        <td colspan="6"><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>No Data Found !</strong></td>
-                    </tr>
-                    </tbody>
-                @endif
             </table>
         </div>
     </div>
