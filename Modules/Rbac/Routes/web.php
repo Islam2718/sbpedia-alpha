@@ -26,7 +26,7 @@ Route::prefix('rbac')->group(function() {
     Route::get('/roles',[\Modules\Rbac\Http\Controllers\RoleController::class, 'index'])->name('roles.index');
     Route::get('/roles/create',[\Modules\Rbac\Http\Controllers\RoleController::class, 'create'])->name('roles.create');
     Route::post('/roles/store',[\Modules\Rbac\Http\Controllers\RoleController::class, 'store'])->name('roles.store');
-    Route::get('/roles/{roleId}/edit',[\Modules\Rbac\Http\Controllers\RoleController::class, 'edit'])->name('roles.edit');
+    Route::get('/roles/{roleId}/assign',[\Modules\Rbac\Http\Controllers\RoleController::class, 'assign'])->name('roles.assign');
     Route::post('/roles/{roleId}/permissions/assign',[\Modules\Rbac\Http\Controllers\RoleController::class, 'assignPermissions'])->name('roles.assign.permissions');
 
 
