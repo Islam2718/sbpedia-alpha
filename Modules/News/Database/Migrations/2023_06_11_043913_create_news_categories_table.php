@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('news_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('parent_id')->nullable();
+            $table->string('parent_id')->default(0);
+            $table->string('language_id');
+            $table->string('language_alias')->nullable();
+            $table->string('name');
             $table->string('alias');
-            $table->tinyInteger('status')->default('0')->comments('0 = new, 1 = active, 2 = suspended');            
-            $table->string('is_default')->default(0);
-            $table->string('order');
+            $table->text('description')->nullable();
+            $table->tinyInteger('status')->default('1')->comments('0 = In Active, 1 = Active');            
+            $table->string('order')->nullable();
             $table->timestamps(); // create_at, updated_at
         });
     }

@@ -77,23 +77,13 @@
 
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="{{ route('news.news-list') }}" class="menu-link">
-                                <div data-i18n="Without menu">All News </div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="{{ route('news.create') }}" class="menu-link">
-                                <div data-i18n="Without navbar">Add News</div>
-                            </a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#" class="menu-link">
+                            <a href="{{ route('news.category-list') }}" class="menu-link">
                                 <div data-i18n="Container">News Category</div>
                             </a>
-                        </li>
+                        </li>                        
                         <li class="menu-item">
                             <a href="#" class="menu-link">
-                                <div data-i18n="Fluid">Languages</div>
+                                <div data-i18n="Without menu">All News //</div>
                             </a>
                         </li>
                     </ul>

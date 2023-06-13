@@ -2,7 +2,10 @@
 @include('admin-panel.sidebar')
 <!-- users content  -->
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light"><a hef="#">News</a> /</span> <a href="#">Category</a></h4>
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light"><a hef="#">News</a> /</span> <a href="#">Category</a>
+        <a href="{{ route('news.category-create') }}" class="btn btn-sm btn-primary">+ Add New</a>
+    </h4>
 
     <!-- Basic Bootstrap Table -->
     <div class="card">
@@ -12,27 +15,25 @@
                 <thead>
                     <tr>
                         <th>Sl</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th>name</th>
+                        <th>Language</th>
+                        <th>Parent</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                @if(count($categoryArray) > 0)
+                @if(count($newsCategoryArray) > 0)
                 <tbody class="table-border-bottom-0">     
-                    @foreach($categoryArray as $newsCategoryData)                                   
+                    @foreach($newsCategoryArray as $newsCategoryData)                                   
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
+                        <td>{{ $newsCategoryData->name }}</td>
+                        <td>{{ $newsCategoryData->language_id }}</td>
+                        <td>{{ $newsCategoryData->parent_id ? $newsCategoryData->parent_id: '--'}}</td>
+                        <td>{{ $newsCategoryData->status == 0 ? 'In Active': 'Active' }}</td>
                         <td>
-                            {{$newsCategoryData->alias}}
-                        </td>
-                        <td>{{$userData->email}}</td>
-                        <td><span class="badge bg-label-primary me-1">Admin</span></td>
-                        <td><span class="badge bg-label-success me-1">Active</span></td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <a href="" class="btn-sm btn btn-primary">Edit</a>
+                            <a href="" class="btn-sm btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach

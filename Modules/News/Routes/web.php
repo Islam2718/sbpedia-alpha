@@ -21,6 +21,8 @@ Route::prefix('news')->group(function() {
 
     //news category 
     Route::get('/category/list', 'NewsCategoryController@index')->name('news.category-list');
+    Route::get('/category/create', 'NewsCategoryController@create')->name('news.category-create');
+    Route::post('/category/store', 'NewsCategoryController@store')->name('news.category-store');
 
     // //news category contents
     // Route::get('/category/list', 'NewsCategoryController@index')->name('news.category-list');
