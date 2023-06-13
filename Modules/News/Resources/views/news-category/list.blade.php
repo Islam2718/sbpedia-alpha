@@ -22,8 +22,11 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                @if(count($newsCategoryArray) > 0)
-                <tbody class="table-border-bottom-0">     
+                <!--  -->
+                <tbody class="table-border-bottom-0">   
+                    <?php
+                        dd($newsCategoryArray);
+                    ?>  
                     @foreach($newsCategoryArray as $newsCategoryData)                                   
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
@@ -37,14 +40,13 @@
                         </td>
                     </tr>
                     @endforeach
-                </tbody>
-                @else
-                <tbody>
+                <!-- </tbody> -->
+                <!-- <tbody>
                     <tr>
                         <td colspan="6"><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>No Data Found !</strong></td>
                     </tr>
                 </tbody>
-                @endif
+                
             </table>
         </div>
     </div>

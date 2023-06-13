@@ -10,6 +10,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 // model 
 use Modules\Settings\Entities\Language;
 use Modules\News\Entities\NewsCategory;
+use Illuminate\Support\Facades\DB;
 
 class NewsCategoryController extends Controller
 {
@@ -21,10 +22,22 @@ class NewsCategoryController extends Controller
     {
         $data = array(
             'languageArray' => Language::all(),
-            'newsCategoryArray' => NewsCategory::all(),
+            // 'newsCategoryArray' => NewsCategory::query()->select('news_categories.*', 'languages.*')
+            // ->join('languages', 'news_categories.language_id', '=', 'languages.id')
+            // ->get(),
+
+            // 'newCat' => DB::table('news_categories')
+            // ->select('news_categories.name', 'languages.name')
+            // ->join('languages', 'languages.id', '=', 'news_categories.language_id')
+            // ->get()
+
+            // 'newsCategoryArray' => NewsCategory::join(
+            //     'news_categories as a', 
+            //     'a.language_id', 
+            //     '=', 'languages.id')->get(['a.*', 'languages.name'])
             // 'languageInfo' => Language::where('id', NewsCategory.language )->first()
         );
-        // dd($data); die(); 
+        dd($data); die(); 
         return view('news::news-category.list', $data);
     }
 
