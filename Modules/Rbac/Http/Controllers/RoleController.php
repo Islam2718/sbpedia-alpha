@@ -50,7 +50,7 @@ class RoleController extends Controller
         $role->name = $request->name;
         $role->save();
 
-        Toastr::success('SUCCESS', 'role added successfully');
+        Toastr::success('SUCCESS', 'role added successfully',[ "progressBar"=>true, "closeButton"=> true,]);
         return redirect('/rbac/roles');
     }
 
