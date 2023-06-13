@@ -108,7 +108,7 @@ class RoleController extends Controller
        // Auth::user()->givePermissionTo($request->permission);
         $role->givePermissionTo($request->permission);
 //       dd($role);
-        return redirect()->route('roles.index');
+        return redirect('/rbac/'.$role->id.'/assign');
     }
 
     /**
