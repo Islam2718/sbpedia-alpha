@@ -6,7 +6,9 @@
 
     <!-- Basic Bootstrap Table -->
     <div>
+        @can('create-permission')
         <a href="{{route('permissions.create')}}" class="btn btn-primary">Create</a>
+        @endcan
     </div>
     <div class="card">
         <h5 class="card-header">Table Basic</h5>

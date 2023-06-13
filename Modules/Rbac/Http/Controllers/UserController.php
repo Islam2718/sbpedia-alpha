@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
@@ -16,7 +17,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        // data    
+        // data
         $data = array(
             'users'=> User::all()
         );
@@ -72,6 +73,29 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+
+    public function assign($id){
+
+        $data = array(
+           'user' =>  User::find($id),
+            'roles' => Role::all()
+        );
+
+        return view('rbac::users.assign', $data);
+    }
+
+    public function assignRoles(Request $request, $id){
+        $user = User::where('id', $id)->first();
+        // dd($user);
+//        if ($role->hasPermissionTo($request->permission)){
+//            return back()->with('message', 'Permission exists');
+//        }
+        // Auth::user()->givePermissionTo($request->permission);
+        //$role->givePermissionTo($request->permission);
+//       dd($role);
+        $user->assignRole($request->role);
+        return redirect()->route('roles.index');
     }
 
     /**

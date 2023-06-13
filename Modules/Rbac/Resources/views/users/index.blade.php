@@ -20,8 +20,8 @@
                     </tr>
                 </thead>
                 @if(count($users) > 0)
-                <tbody class="table-border-bottom-0">     
-                    @foreach($users as $userData)                                   
+                <tbody class="table-border-bottom-0">
+                    @foreach($users as $userData)
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
                         <td>
@@ -31,11 +31,11 @@
                             {{$userData->name}}
                         </td>
                         <td>{{$userData->email}}</td>
-                        <td><span class="badge bg-label-primary me-1">Admin</span></td>
+                        <td><span class="badge bg-label-primary me-1"></span></td>
                         <td><span class="badge bg-label-success me-1">Active</span></td>
                         <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <a href="{{route('users.assign-role', $userData->id)}}" class="btn btn-sm btn-primary">Assign</a>
+                            <a class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach

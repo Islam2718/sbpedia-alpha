@@ -5,7 +5,7 @@
     <div>
         <a class="btn btn-primary mb-lg-n2" href="{{route('permissions.index')}}">Permissions</a>
     </div>
-    <h5 class="card-header">Update Permissions</h5>
+    <h5 class="card-header">Update Permission</h5>
     <div class="card-body row">
         <form method="POST" action="{{route('permissions.update', $permission->id)}}">
             {{--{{route('roles.store')}}--}}

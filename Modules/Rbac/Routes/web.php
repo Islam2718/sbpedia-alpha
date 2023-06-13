@@ -17,6 +17,11 @@ Route::prefix('rbac')->group(function() {
     // user routes
     Route::get('/users', 'UserController@index')->name('users.index');
     Route::get('/users/create', 'UserController@create')->name('users.create');
+    Route::get('/users/{userId}/assign', 'UserController@assign')->name('users.assign-role');
+    Route::post('/roles/{userId}/roles/assign','UserController@assignRoles')->name('user.assign.roles');
+
+
+
 
     // profile routes
     Route::get('/profile/{userId}/edit', 'ProfileController@edit')->name('users.profile.edit');
