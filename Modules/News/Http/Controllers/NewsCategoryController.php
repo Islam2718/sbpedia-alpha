@@ -5,8 +5,11 @@ namespace Modules\News\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+// swit alerts 
+use RealRashid\SweetAlert\Facades\Alert;
+// model 
+use Modules\Settings\Entities\Language;
 use Modules\News\Entities\NewsCategory;
-use Modules\News\Entities\NewsCategoryLanguage;
 
 class NewsCategoryController extends Controller
 {
@@ -17,7 +20,9 @@ class NewsCategoryController extends Controller
     public function index()
     {
         $data = array(
-            'categoryArray' => NewsCategoryLanguage::all()
+            'languageArray' => Language::all(),
+            'newsCategoryArray' => NewsCategory::all(),
+            'languageInfo' => Language::find()
         );
         // dd($data); die(); 
         return view('news::news-category.list', $data);
@@ -29,7 +34,11 @@ class NewsCategoryController extends Controller
      */
     public function create()
     {
-        return view('news::create');
+        $data = array(
+            'languageArray' => Language::all(),
+            'newsCategoryArray' => NewsCategory::all()
+        );        
+        return view('news::news-category.create', $data);
     }
 
     /**
@@ -40,6 +49,18 @@ class NewsCategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $newsCategoryModel = new NewsCategory();
+        $newsCategoryModel->parent_id = $request->parent_id;
+        $newsCategoryModel->language_id = $request->language_id;
+        $newsCategoryModel->name = $request->name;
+        $newsCategoryModel->alias = $request->alias;
+        $newsCategoryModel->description = $request->description;
+        $newsCategoryModel->status = $request->status;
+        $newsCategoryModel->order = $request->order;
+
+        $newsCategoryModel->save();
+        Alert::success('Category', 'Successfully Saved !');
+        return redirect()->route('news.category-list');
     }
 
     /**
