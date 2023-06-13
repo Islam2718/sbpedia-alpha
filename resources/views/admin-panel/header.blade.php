@@ -35,6 +35,8 @@
 
     <link rel="stylesheet" href="{{asset('admin-assets/vendor/libs/apex-charts/apex-charts.css')}}" />
 
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
+
     <!-- Page CSS -->
 
     <!-- Helpers -->
@@ -47,6 +49,7 @@
 
 <body>
 @include('sweetalert::alert')
+{!! Toastr::message() !!}
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">
