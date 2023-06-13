@@ -22,7 +22,7 @@ class NewsCategoryController extends Controller
         $data = array(
             'languageArray' => Language::all(),
             'newsCategoryArray' => NewsCategory::all(),
-            'languageInfo' => Language::find()
+            // 'languageInfo' => Language::where('id', NewsCategory.language )->first()
         );
         // dd($data); die(); 
         return view('news::news-category.list', $data);
