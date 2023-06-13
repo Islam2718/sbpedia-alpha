@@ -10,6 +10,7 @@ use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Traits\HasPermissions;
+use Brian2694\Toastr\Facades\Toastr;
 
 class RoleController extends Controller
 {
@@ -49,7 +50,8 @@ class RoleController extends Controller
         $role->name = $request->name;
         $role->save();
 
-        return redirect('/roles');
+        Toastr::success('SUCCESS', 'role added successfully');
+        return redirect('/rbac/roles');
     }
 
     /**
