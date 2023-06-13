@@ -106,7 +106,7 @@
                                                 </div>
                                                 <div class="flex-grow-1">
                                                     <span class="fw-semibold d-block">{{Auth::user()->username}}</span>
-                                                    <small class="text-muted">{{ Auth::user()->roles->pluck('name')[0] }}</small>
+                                                    <!-- <small class="text-muted"></small> -->
                                                 </div>
                                             </div>
                                         </a>

@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('news_categories', function (Blueprint $table) {
             $table->id();
-            $table->string('parent_id')->default(0);
-            $table->string('language_id');
+            $table->bigInteger('parent_id')->default(0)->nullable();
+            $table->bigInteger('language_id');
             $table->string('language_alias')->nullable();
             $table->string('name');
             $table->string('alias');
