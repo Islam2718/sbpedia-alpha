@@ -78,7 +78,7 @@ class UserController extends Controller
     public function assign($id){
 
         $data = array(
-           'user' =>  User::find($id),
+           'user' =>  User::with('roles')->find($id),
             'roles' => Role::all()
         );
 

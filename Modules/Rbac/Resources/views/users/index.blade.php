@@ -34,8 +34,14 @@
                         <td><span class="badge bg-label-primary me-1"></span></td>
                         <td><span class="badge bg-label-success me-1">Active</span></td>
                         <td>
+                            @can('assign-roles')
                             <a href="{{route('users.assign-role', $userData->id)}}" class="btn btn-sm btn-primary">Assign</a>
-                            <a class="btn btn-sm btn-danger">Delete</a>
+                            @endcan
+                            @can('delete-user')
+                            <a class="btn btn-sm btn-danger text-white">Delete</a>
+                            @endcan
+                                <a class="btn btn-sm btn-warning text-white">View</a>
+
                         </td>
                     </tr>
                     @endforeach
