@@ -57,11 +57,11 @@
                         <div class="mb-2 my-2 pb-3">
                             <label class="form-label" for="status">Status</label>
                             <div class="form-check">
-                                <input name="status" class="form-check-input"  checked type="radio" value="1" id="active">
+                                <input name="status" class="form-check-input"  type="radio" value="1" id="active" {{ ( $newsCategoryArrayById->status == 1) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="active"> Active </label>
                             </div>
                             <div class="form-check">
-                                <input name="status" class="form-check-input" type="radio" value="0" id="inactive">
+                                <input name="status" class="form-check-input" type="radio" value="0" id="inactive" {{ ( $newsCategoryArrayById->status == 0) ? 'checked' : '' }}>
                                 <label class="form-check-label" for="inactive"> In Active </label>
                             </div>
                         </div>

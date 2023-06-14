@@ -72,7 +72,7 @@
                     </div>
                     <div class="my-3">
                         <button type="submit" class="btn btn-primary">Save</button>
-                        <a href="{{ route('settings.language') }}" class="btn btn-danger">Cancel</a>
+                        <a href="{{ route('news.category.list') }}" class="btn btn-danger">Cancel</a>
                     </div>
                 </div>
             </div>
