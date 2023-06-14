@@ -88,6 +88,7 @@ class LanguageController extends Controller
      */
     public function update(Request $request, $id)
     {
+        
         // null and space validation check 
         $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
 

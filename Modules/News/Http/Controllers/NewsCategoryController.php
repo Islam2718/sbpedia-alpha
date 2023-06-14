@@ -22,22 +22,11 @@ class NewsCategoryController extends Controller
     {
         $data = array(
             'languageArray' => Language::all(),
-            // 'newsCategoryArray' => NewsCategory::query()->select('news_categories.*', 'languages.*')
-            // ->join('languages', 'news_categories.language_id', '=', 'languages.id')
-            // ->get(),
-
-            // 'newCat' => DB::table('news_categories')
-            // ->select('news_categories.name', 'languages.name')
-            // ->join('languages', 'languages.id', '=', 'news_categories.language_id')
-            // ->get()
-
-            // 'newsCategoryArray' => NewsCategory::join(
-            //     'news_categories as a', 
-            //     'a.language_id', 
-            //     '=', 'languages.id')->get(['a.*', 'languages.name'])
-            // 'languageInfo' => Language::where('id', NewsCategory.language )->first()
+            'newsCategoryArray' => DB::table('news_categories')
+                                ->join('languages', 'news_categories.language_id', '=', 'languages.id')
+                                ->select('news_categories.*', 'languages.name as language')
+                                ->get()
         );
-        dd($data); die(); 
         return view('news::news-category.list', $data);
     }
 
@@ -61,6 +50,7 @@ class NewsCategoryController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
         //
         $newsCategoryModel = new NewsCategory();
         $newsCategoryModel->parent_id = $request->parent_id;
@@ -73,7 +63,7 @@ class NewsCategoryController extends Controller
 
         $newsCategoryModel->save();
         Alert::success('Category', 'Successfully Saved !');
-        return redirect()->route('news.category-list');
+        return redirect()->route('news.category.create');
     }
 
     /**
@@ -93,7 +83,13 @@ class NewsCategoryController extends Controller
      */
     public function edit($id)
     {
-        return view('news::edit');
+        
+        $data = array(
+            'languageArray' => Language::all(),
+            'newsCategoryArray' => NewsCategory::all(),
+            'newsCategoryArrayById' => NewsCategory::where('id', $id)->first()
+        ); 
+        return view('news::news-category.edit', $data);
     }
 
     /**
@@ -104,7 +100,25 @@ class NewsCategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($id); 
+        // null and space validation check 
+        // $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
         //
+        $newsCategoryModel = NewsCategory::find($id);
+        // dd($newsCategoryModel);
+
+        $newsCategoryModel->parent_id = $request->parent_id;
+        $newsCategoryModel->language_id = $request->language_id;
+        $newsCategoryModel->name = $request->name;
+        $newsCategoryModel->alias = $request->alias;
+        $newsCategoryModel->description = $request->description;
+        $newsCategoryModel->status = $request->status;
+        $newsCategoryModel->order = $request->order;
+        // dd($newsCategoryModel);
+
+        $newsCategoryModel->save();
+        Alert::success('Category', 'Successfully Updated !');
+        return redirect()->route('news.category.edit', $id);
     }
 
     /**
@@ -114,6 +128,9 @@ class NewsCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Alert::question('Are You Sure!', 'to Delete this language?');
+        $newsCategoryModel = NewsCategory::find($id);
+        $newsCategoryModel->delete();
+        return redirect()->route('news.category.list');
     }
 }

@@ -18,7 +18,7 @@
             <ul class="menu-inner py-1">
                 <!-- Dashboard -->
                 <li class="menu-item active">
-                    <a href="index.html" class="menu-link">
+                    <a href="" class="menu-link">
                         <i class="menu-icon tf-icons bx bx-home-circle"></i>
                         <div data-i18n="Analytics">Dashboard</div>
                     </a>
@@ -77,7 +77,7 @@
 
                     <ul class="menu-sub">
                         <li class="menu-item">
-                            <a href="{{ route('news.category-list') }}" class="menu-link">
+                            <a href="{{ route('news.category.list') }}" class="menu-link">
                                 <div data-i18n="Container">News Category</div>
                             </a>
                         </li>                        

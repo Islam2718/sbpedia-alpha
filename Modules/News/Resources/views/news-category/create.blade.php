@@ -4,10 +4,10 @@
 <div class="container-xxl flex-grow-1 container-p-y">
     <h4 class="fw-bold py-3 mb-4">
         <span class="text-muted fw-light"><a hef="#">News</a> /</span> <a href="#">Category</a>        
-        <a href="{{ route('news.category-list') }}" class="btn btn-sm btn-primary">Back to List</a>
+        <a href="{{ route('news.category.list') }}" class="btn btn-sm btn-primary">Back to List</a>
     </h4>
 
-    <form method="post" action="{{ route('news.category-store') }}">
+    <form method="post" action="{{ route('news.category.store') }}">
         @csrf
         <!-- Profile INFO -->
         <div class="card my-3 px-4">
@@ -67,7 +67,7 @@
                         </div>
                         <div class="mb-2 my-3">
                             <label class="form-label" for="order">Order</label>
-                            <input type="number" min-value=0 class="form-control" id="order" name="order">
+                            <input type="number" class="form-control" id="order" name="order">
                         </div>
                     </div>
                     <div class="my-3">
