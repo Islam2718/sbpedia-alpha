@@ -11,7 +11,9 @@
 |
 */
 
-Route::prefix('news')->group(function() {
+
+
+Route::group(['prefix'=>'news','middleware' => 'auth'], function() {
     Route::get('/', 'NewsController@index');
 
 
