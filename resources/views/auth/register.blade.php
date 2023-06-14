@@ -7,7 +7,7 @@
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
                 <div class="card-body">
-                    @php dd($googleInfo); @endphp
+                    {{--@php dd($googleInfo); @endphp--}}
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
