@@ -51,7 +51,7 @@ class NewsCategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
+        // $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
         //
         $newsCategoryModel = new NewsCategory();
         $newsCategoryModel->parent_id = $request->parent_id;

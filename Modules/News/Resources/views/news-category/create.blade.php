@@ -9,7 +9,7 @@
 
     <form method="post" action="{{ route('news.category.store') }}">
         @csrf
-        <!-- Profile INFO -->
+        <!-- news category INFO -->
         <div class="card my-3 px-4">
             <h5 class="card-header">Add:</h5>
             <div class="card-body">
@@ -17,7 +17,7 @@
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="name">Name</label>
-                            <input required name="name" type="text" class="form-control" id="name" placeholder="Enter Category Name !">
+                            <input required name="name" type="text" class="form-control" id="name" placeholder="Enter Category Name !" onChange="setAlias()">
                             <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>
                         </div>
                     </div>
@@ -79,12 +79,16 @@
                 </div>
             </div>
         </div>
-        <!--/ profile INFO END -->
-        <!-- social INFO -->
-
-        <!--/ social INFO END -->
+        <!--/ news category END -->
     </form>
-
 </div>
+<script>
+    // set to alias field 
+    function setAlias(){
+        var name = document.getElementById('name').value;
+        var alias = name.replace(" ", "-");
+        document.getElementById("alias").value = alias;
+    }
+</script>
 <!-- users content end  -->
 @include('admin-panel.footer')

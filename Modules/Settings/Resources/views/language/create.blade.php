@@ -16,15 +16,15 @@
                 <div class="row">
                     <div class="col-xl-5">
                         <div class="mb-2">
-                            <label class="form-label" for="basic-default-fullname">Name</label>
-                            <input name="name" type="text" class="form-control" id="basic-default-fullname" placeholder="Enter Langue Name !">
+                            <label class="form-label" for="name">Name</label>
+                            <input name="name" type="text" class="form-control" id="name" placeholder="Enter Langue Name !" onchange="setAlias()">
                             <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl-5">
                         <div class="mb-2">
-                            <label class="form-label" for="basic-default-fullname">Alias</label>
-                            <input required name="alias" type="text" class="form-control" id="basic-default-fullname" placeholder="Alias !">
+                            <label class="form-label" for="alias">Alias</label>
+                            <input required name="alias" type="text" class="form-control" id="alias" placeholder="Alias !" >
                             <span class="text-danger font-weight-bold">{{$errors->has('alias') ? $errors->first('alias') : ' '}}</span>
                         </div>
                     </div>
@@ -74,5 +74,13 @@
     </form>
 
 </div>
+<script>
+    // set to alias field 
+    function setAlias(){
+        var name = document.getElementById('name').value;
+        var alias = name.replace(" ", "-");
+        document.getElementById("alias").value = alias;
+    }
+</script>
 <!-- users content end  -->
 @include('admin-panel.footer')
