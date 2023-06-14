@@ -35,7 +35,7 @@
                         <td>{{$languageData->is_default == 1 ? 'Yes': 'No'}}</td>
                         <td>
                             <a href="{{ route('settings.language.edit', $languageData->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                            <a href="{{ route('settings.language.delete', $languageData->id) }}" class="btn btn-sm btn-danger">Delete</a>
+                            <a href="{{ route('settings.language.delete', $languageData->id) }}"  class="btn btn-sm btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach

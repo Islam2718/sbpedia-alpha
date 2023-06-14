@@ -11,19 +11,21 @@
         @csrf
         <!-- Profile INFO -->
         <div class="card my-3 px-4">
-            <h5 class="card-header">Add:)</h5>
+            <h5 class="card-header">Add:</h5>
             <div class="card-body">
                 <div class="row">
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="name">Name</label>
                             <input required name="name" type="text" class="form-control" id="name" placeholder="Enter Category Name !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="alias">Alias</label>
                             <input required name="alias" type="text" class="form-control" id="alias" placeholder="Enter Alias !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('alias') ? $errors->first('alias') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl">

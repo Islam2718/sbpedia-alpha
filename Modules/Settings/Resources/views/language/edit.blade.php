@@ -16,14 +16,16 @@
                 <div class="row">
                     <div class="col-xl-5">
                         <div class="mb-2">
-                            <label class="form-label" for="basic-default-fullname">Name</label>
-                            <input name="name" value="{{ $languageByIdArray->name }}" type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe">
+                            <label class="form-label" for="name">Name</label>
+                            <input name="name" value="{{ $languageByIdArray->name }}" type="text" class="form-control" id="name" placeholder="Enter Language Name !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl-5">
                         <div class="mb-2">
-                            <label class="form-label" for="basic-default-fullname">Alias</label>
-                            <input name="alias" value="{{ $languageByIdArray->alias }}" type="text" class="form-control" id="basic-default-fullname" placeholder="Alias !">
+                            <label class="form-label" for="alias">Alias</label>
+                            <input name="alias" value="{{ $languageByIdArray->alias }}" type="text" class="form-control" id="alias" placeholder="Alias !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('alias') ? $errors->first('alias') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl">

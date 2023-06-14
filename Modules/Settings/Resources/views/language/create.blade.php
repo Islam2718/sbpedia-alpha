@@ -17,13 +17,15 @@
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="basic-default-fullname">Name</label>
-                            <input required name="name" type="text" class="form-control" id="basic-default-fullname" placeholder="John Doe">
+                            <input name="name" type="text" class="form-control" id="basic-default-fullname" placeholder="Enter Langue Name !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="basic-default-fullname">Alias</label>
                             <input required name="alias" type="text" class="form-control" id="basic-default-fullname" placeholder="Alias !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('alias') ? $errors->first('alias') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl">

@@ -5,8 +5,9 @@ namespace Modules\News\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-// swit alerts 
+// swit alerts & Toastr lib includes
 use RealRashid\SweetAlert\Facades\Alert;
+use Brian2694\Toastr\Facades\Toastr;
 // model 
 use Modules\Settings\Entities\Language;
 use Modules\News\Entities\NewsCategory;
@@ -62,7 +63,8 @@ class NewsCategoryController extends Controller
         $newsCategoryModel->order = $request->order;
 
         $newsCategoryModel->save();
-        Alert::success('Category', 'Successfully Saved !');
+        // Alert::success('Category', 'Successfully Saved !');
+        Toastr::success('SUCCESS', 'Category Added successfully',[ "progressBar"=>true, "closeButton"=> true,]);
         return redirect()->route('news.category.create');
     }
 
@@ -117,7 +119,8 @@ class NewsCategoryController extends Controller
         // dd($newsCategoryModel);
 
         $newsCategoryModel->save();
-        Alert::success('Category', 'Successfully Updated !');
+        // Alert::success('Category', 'Successfully Updated !');
+        Toastr::success('SUCCESS', 'Category Updated successfully',[ "progressBar"=>true, "closeButton"=> true,]);
         return redirect()->route('news.category.edit', $id);
     }
 
@@ -131,6 +134,7 @@ class NewsCategoryController extends Controller
         Alert::question('Are You Sure!', 'to Delete this language?');
         $newsCategoryModel = NewsCategory::find($id);
         $newsCategoryModel->delete();
+        Toastr::success('SUCCESS', '1 Category Deleted',[ "progressBar"=>true, "closeButton"=> true,]);
         return redirect()->route('news.category.list');
     }
 }
