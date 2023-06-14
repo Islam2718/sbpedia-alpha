@@ -14,3 +14,9 @@
 Route::prefix('auth')->group(function() {
     Route::get('/', 'AuthController@index');
 });
+
+Route::get('login/google', [\Modules\Auth\Http\Controllers\GoogleController::class, 'redirectToGoogle']);
+Route::get('login/google/callback', [\Modules\Auth\Http\Controllers\GoogleController::class, 'handleGoogleCallback']);
+Route::post('login/google/callback/post', [\Modules\Auth\Http\Controllers\GoogleController::class, 'handleGoogleCallbackPost'])
+->name('register.google.register');
+

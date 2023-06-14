@@ -5,19 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Google Register') }}</div>
                 <div class="card-body">
-                    @php dd($googleInfo); @endphp
-                    <form method="POST" action="{{ route('register') }}">
+                    {{--@php dd($userInfo); @endphp--}}
+                    <form method="POST" action="{{ route('register.google.register') }}">
                         @csrf
-
+                        <input type="hidden" name="google_id" value="{{$googleInfo->id}}">
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Username') }}</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="text"
                                     class="form-control @error('name') is-invalid @enderror" name="username"
-                                    value="{{ old('username') }}" required autocomplete="username" autofocus>
+                                    value="{{$googleInfo->name}}" required autocomplete="username" autofocus>
 
                                 @error('name')
                                 <span class="invalid-feedback" role="alert">
@@ -33,7 +33,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror"
-                                    name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    name="email" value="{{$googleInfo->email}}" required autocomplete="email">
 
                                 @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -43,6 +43,7 @@
                             </div>
                         </div>
 
+                        @if(empty($userInfo->password))
                         <div class="row mb-3">
                             <label for="password"
                                 class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
@@ -69,7 +70,7 @@
                                     name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                       @endif
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
