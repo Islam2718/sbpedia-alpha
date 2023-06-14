@@ -18,12 +18,14 @@
                         <div class="mb-2">
                             <label class="form-label" for="name">Name</label>
                             <input value="{{ $newsCategoryArrayById->name }}" required name="name" type="text" class="form-control" id="name" placeholder="Enter Category Name !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl-5">
                         <div class="mb-2">
                             <label class="form-label" for="alias">Alias</label>
                             <input value="{{ $newsCategoryArrayById->alias }}" required name="alias" type="text" class="form-control" id="alias" placeholder="Enter Alias !">
+                            <span class="text-danger font-weight-bold">{{$errors->has('alias') ? $errors->first('alias') : ' '}}</span>
                         </div>
                     </div>
                     <div class="col-xl">

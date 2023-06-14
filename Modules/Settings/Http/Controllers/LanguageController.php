@@ -4,8 +4,9 @@ namespace Modules\Settings\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-// swit alerts 
+// swit alerts & Toastr lib includes
 use RealRashid\SweetAlert\Facades\Alert;
+use Brian2694\Toastr\Facades\Toastr;
 // models 
 use Modules\Settings\Entities\Language;
 
@@ -21,7 +22,6 @@ class LanguageController extends Controller
         $data = array(
             'languageArray' => Language::all()
         );
-
         return view('settings::language.index',$data);
     }
 
@@ -42,7 +42,7 @@ class LanguageController extends Controller
     public function store(Request $request)
     {
         // null and space validation check 
-        $request->validate(['name' => ['required', 'regex:/^[^\s]+$/']]);
+        $request->validate(['name' => ['required', 'regex:/^\S*$/u']]);
         //
         $languageModel = new Language();
         $languageModel->name = $request->name;
@@ -52,8 +52,13 @@ class LanguageController extends Controller
         $languageModel->status = $request->status;
         $languageModel->is_default = $request->is_default;
 
-        $languageModel->save();        
-        Alert::success('New Language', 'Successfully Saved !');
+        if($languageModel->save()){
+            // Alert::success('New Language', 'Successfully Saved !');        
+            Toastr::success('Successfully', 'Added successfully',[ "progressBar"=>true, "closeButton"=> true,]);
+        }else{
+            // Alert::success('New Language', 'Successfully Saved !');        
+            Toastr::error('ERROR', 'Failed !',[ "progressBar"=>true, "closeButton"=> true,]);
+        }
         return redirect()->route('settings.language.create');
     }
 
@@ -112,8 +117,14 @@ class LanguageController extends Controller
                 $languageModel->is_default = $request->is_default;                
             }
         }
-        $languageModel->save();
-        Alert::success('Language', 'Successfully Updated !');
+        
+        if($languageModel->save()){
+            // Alert::success('New Language', 'Successfully Saved !');        
+            Toastr::success('Successflly', 'Updated successfully',[ "progressBar"=>true, "closeButton"=> true,]);
+        }else{
+            // Alert::success('New Language', 'Successfully Saved !');        
+            Toastr::error('Try Again', 'Failed !',[ "progressBar"=>true, "closeButton"=> true,]);
+        }          
         return redirect()->route('settings.language.edit', $id);
     }
 
@@ -124,9 +135,15 @@ class LanguageController extends Controller
      */
     public function destroy($id)
     {
-        Alert::question('Are You Sure!', 'to Delete this language?');
+        // Alert::question('Are You Sure!', 'to Delete this Language?');
+        // confirmDelete('Delete Language?', 'Are You Sure to Delete Language !');
         $languageModel = Language::find($id);
-        $languageModel->delete();
+
+        if($languageModel->delete()){
+            Toastr::success('Successfully !', '1 Language Deleted !',[ "progressBar"=>true, "closeButton"=> true,]);
+        }else{
+            Toastr::error('ERROR', 'Failed !',[ "progressBar"=>true, "closeButton"=> true,]);
+        }        
         return redirect()->route('settings.language');
     }
 }
