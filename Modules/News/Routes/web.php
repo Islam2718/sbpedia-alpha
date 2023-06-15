@@ -21,12 +21,7 @@ Route::group(['prefix'=>'news','middleware' => 'auth'], function() {
     Route::get('/news/list', 'NewsController@allNews')->name('news.news-list');
     Route::get('/news/create', 'NewsController@create')->name('news.create');
 
-<<<<<<< HEAD
-    //news category 
-
-=======
-    //news category
->>>>>>> 1601814ccb8c22e3e6f73d8cc8dbc9c99575e259
+    // news category 
     Route::get('/category-list', 'NewsCategoryController@index')->name('news.category.list');
     Route::get('/category-create', 'NewsCategoryController@create')->name('news.category.create');
     Route::post('/category-store', 'NewsCategoryController@store')->name('news.category.store');
