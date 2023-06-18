@@ -2,44 +2,44 @@
 @include('admin-panel.sidebar')
 <!-- users content  -->
 <div class="container-xxl flex-grow-1 container-p-y">
-    <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">News /</span> List</h4>
-    
+    <h4 class="fw-bold py-3 mb-4">
+        <span class="text-muted fw-light">News /</span> List
+        <a href="{{ route('news.news.create') }}" class="btn btn-sm btn-primary">Add News</a>
+    </h4>
     <!-- Basic Bootstrap Table -->
-    <div class="card">
-        <h5 class="card-header">Table Basic</h5>
+    <div class="card px-3 pb-5 pt-3">
+        <h5 class="card-header">List</h5>
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead>
                     <tr>
                         <th>Sl</th>
-                        <th>Username</th>
-                        <th>Email</th>
-                        <th>Role</th>
+                        <th>Name</th>
+                        <th>Language</th>
+                        <th>Title</th>
                         <th>Status</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
-                @if(count($users) > 0)
-                <tbody class="table-border-bottom-0">     
-                    @foreach($users as $userData)                                   
+                @if(count($newsArray) > 0)
+                <tbody class="table-border-bottom-0">   
+                    @foreach($newsArray as $newsData)                                   
                     <tr>
                         <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>1</strong></td>
+                        <td>{{ $newsData->name }}</td>
+                        <td>{{ $newsData->language }}</td>
+                        <td>{{ $newsData->title }}</td>
+                        <td>{{ $newsData->status == 0 ? 'In Active': 'Active' }}</td>
                         <td>
-                            <img src="../admin-assets/img/avatars/5.png" alt="Avatar" class="rounded-circle"
-                                style="width:22px;">
-                            &nbsp;
-                            {{$userData->name}}
-                        </td>
-                        <td>{{$userData->email}}</td>
-                        <td><span class="badge bg-label-primary me-1">Admin</span></td>
-                        <td><span class="badge bg-label-success me-1">Active</span></td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <a href="{{ route('news.category.edit', $newsData->id) }}" class="btn-sm btn btn-primary">Edit</a>
+                            <a href="{{ route('news.category.delete', $newsData->id) }}" class="btn-sm btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach
                 </tbody>
+                <thead class="border-bottom-none">
+                    <tr><th colspan="6" class=""> 6 of 123</th></tr>
+                </thead>                
                 @else
                 <tbody>
                     <tr>
@@ -50,7 +50,7 @@
             </table>
         </div>
     </div>
-    <!--/ Basic Bootstrap Table -->
+    <!--/ Basic Bootstrap Table-->
 </div>
 <!-- users content end  -->
 @include('admin-panel.footer')
