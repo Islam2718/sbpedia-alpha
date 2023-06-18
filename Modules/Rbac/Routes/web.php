@@ -11,7 +11,7 @@
 |
 */
 
-Route::prefix('rbac')->group(function() {
+Route::group(['prefix'=>'rbac', 'middleware'=>'auth'], function() {
     Route::get('/', 'RbacController@index');
 
     // user routes

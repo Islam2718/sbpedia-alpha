@@ -4,5 +4,6 @@
     "Auth": true,
     "Rbac": true,
     "Profile": true,
-    "Settings": true
+    "Settings": true,
+    "Dashboard": true
 }
