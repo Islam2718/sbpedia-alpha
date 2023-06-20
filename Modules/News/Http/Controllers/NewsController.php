@@ -5,6 +5,10 @@ namespace Modules\News\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+// model 
+use Modules\Settings\Entities\Language;
+use Modules\News\Entities\News;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
@@ -14,16 +18,22 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('news::index');
+        // dd('here');
+        $data = array();
+        return view('news::news.index', $data);
     }
-    
-    // news list 
+
+    // allNews
     public function allNews()
     {
-        // $data = array(
-        //     'newsArray' => News::all()
-        // );
-        return view('news::news.list');
+        $data = array(
+            'newsArray' => DB::table('news')
+                ->join('languages', 'news.language_id', '=', 'languages.id')
+                ->select('news.*', 'languages.name as language')
+                ->get() 
+        );      
+        
+        return view('news::news.list', $data);
     }
 
     /**
@@ -32,7 +42,11 @@ class NewsController extends Controller
      */
     public function create()
     {
-        return view('news::news.form');
+        $data = array(            
+            'languageArray' => Language::all(),
+            'newsArray' => News::all()
+        );
+        return view('news::news.create', $data);
     }
 
     /**
@@ -43,6 +57,8 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         //
+        dd($request); 
+        die(); 
     }
 
     /**

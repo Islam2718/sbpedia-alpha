@@ -18,8 +18,10 @@ Route::group(['prefix'=>'news','middleware' => 'auth'], function() {
 
 
     // news admin routes
-    Route::get('/news/list', 'NewsController@allNews')->name('news.news-list');
-    Route::get('/news/create', 'NewsController@create')->name('news.create');
+    Route::get('/news-dashboard', 'NewsController@index')->name('news.news.index');
+    Route::get('/news-list', 'NewsController@allNews')->name('news.news.list');
+    Route::get('/news-create', 'NewsController@create')->name('news.news.create');
+    Route::post('/news-store', 'NewsController@store')->name('news.news.store');
 
     // news category 
     Route::get('/category-list', 'NewsCategoryController@index')->name('news.category.list');
@@ -28,10 +30,4 @@ Route::group(['prefix'=>'news','middleware' => 'auth'], function() {
     Route::get('/category/{id}/edit', 'NewsCategoryController@edit')->name('news.category.edit');
     Route::post('/category/{id}/update', 'NewsCategoryController@update')->name('news.category.update');
     Route::get('/category/{id}/delete', 'NewsCategoryController@destroy')->name('news.category.delete');
-
-    // //news category contents
-    // Route::get('/category/list', 'NewsCategoryController@index')->name('news.category-list');
-
-    // //news category language
-    // Route::get('/category/list', 'NewsCategoryLanguageController@index')->name('news.category-language-list');
 });
