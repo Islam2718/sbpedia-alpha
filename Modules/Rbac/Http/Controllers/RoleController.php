@@ -11,6 +11,7 @@ use Spatie\Permission\Models\Role;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Permission\Traits\HasPermissions;
 use Brian2694\Toastr\Facades\Toastr;
+use App\Models\User;
 
 class RoleController extends Controller
 {
@@ -21,10 +22,28 @@ class RoleController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
+        $findRoles = $user->getRoleNames();
+//        dd($findRoles);
+
+
+
+
         $data = array(
-            'roles' => Role::all()
+            'roles' => Role::with('users')->get(),
+            'userRoles' => User::with('roles')->get()
         );
-        return view('rbac::roles.index', $data);
+//       dd($data);
+
+        foreach ($findRoles as $fr){
+            if ($fr == 'admin') {
+                return view('rbac::roles.index', $data);
+            } else{
+                dd('hello world');
+//        return view('rbac::roles.unauthorized');
+            }
+        }
+
     }
 
     /**
@@ -107,7 +126,7 @@ class RoleController extends Controller
         if ($role->hasPermissionTo($request->permission)){
             return back()->with('message', 'Permission exists');
         }
-       // Auth::user()->givePermissionTo($request->permission);
+        // Auth::user()->givePermissionTo($request->permission);
         $role->givePermissionTo($request->permission);
 //       dd($role);
         return redirect('/rbac/'.$role->id.'/assign');

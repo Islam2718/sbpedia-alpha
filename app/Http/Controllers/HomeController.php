@@ -28,7 +28,7 @@ class HomeController extends Controller
     public function index()
     {
         $data = array(
-            'theme' => 'bs5-theme',
+            'theme' => 'comone',
             'title' => 'SBPedia',
 
         );

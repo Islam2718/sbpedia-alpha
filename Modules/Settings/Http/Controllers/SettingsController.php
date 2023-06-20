@@ -14,7 +14,15 @@ class SettingsController extends Controller
      */
     public function index()
     {
-        return view('settings::index');
+
+//        env(['MAIL_MAILER' => 'AK HARUN']);
+       // dd(env('MAIL_MAILER'));
+
+
+        $data = array(
+          'smtp' => 1
+        );
+        return view('settings::index', $data);
     }
 
     /**

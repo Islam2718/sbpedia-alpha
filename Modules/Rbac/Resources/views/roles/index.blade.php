@@ -11,6 +11,7 @@
     <div class="card">
         <h5 class="card-header">Table Basic</h5>
         <div class="table-responsive text-nowrap">
+            @can('roles-index')
             <table class="table">
                 <thead>
                 <tr>
@@ -19,10 +20,10 @@
                     <th>Actions</th>
                 </tr>
                 </thead>
-                @if(count($roles) > 0)
                     <tbody class="table-border-bottom-0">
                     @php $i = 1 @endphp
                     @foreach($roles as $role)
+                        {{--@php dd($role->permissions) @endphp--}}
                         <tr>
                             <td><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>{{$i++}}</strong></td>
                             <td>{{$role->name}}</td>
@@ -33,15 +34,16 @@
                         </tr>
                     @endforeach
                     </tbody>
-                @else
-                    <tbody>
-                    <tr>
-                        <td colspan="6"><i class="fab fa-angular fa-lg text-danger me-3"></i> <strong>No Data Found !</strong></td>
-                    </tr>
-                    </tbody>
-                @endif
             </table>
-        </div>
+                @else
+                <table>
+                    <tbody>
+                        <tr>
+                            not found!
+                        </tr>
+                    </tbody>
+                </table>
+            @endcan
     </div>
     <!--/ Basic Bootstrap Table -->
 
