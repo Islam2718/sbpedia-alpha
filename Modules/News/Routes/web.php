@@ -21,6 +21,7 @@ Route::group(['prefix'=>'news','middleware' => 'auth'], function() {
     Route::get('/news-dashboard', 'NewsController@index')->name('news.news.index');
     Route::get('/news-list', 'NewsController@allNews')->name('news.news.list');
     Route::get('/news-create', 'NewsController@create')->name('news.news.create');
+    Route::post('/news-store', 'NewsController@store')->name('news.news.store');
 
     // news category 
     Route::get('/category-list', 'NewsCategoryController@index')->name('news.category.list');
