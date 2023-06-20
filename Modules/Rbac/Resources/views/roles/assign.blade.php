@@ -6,7 +6,6 @@
         <span class="text-muted fw-light">News /</span> List
         <a class="btn btn-primary btn-sm pull-right mb-lg-n2" href="{{route('roles.index')}}">Roles</a>
     </h4>
-
     <div class="card my-3 px-4">
         <h5 class="card-header">Add Role</h5>
         <div class="card-body row">
