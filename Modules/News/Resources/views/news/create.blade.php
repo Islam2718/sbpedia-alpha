@@ -63,21 +63,19 @@
                         <div class="border p-2 collapse" id="collapseIsFIleId" style="">
                             <div class="mb-3">
                                 <label class="form-label" for="file_type">File Type</label>
-                                <input name="file_type" type="text" class="form-control" id="name" placeholder="Enter Category Name !" onChange="setAlias()">
-                                <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>                            
+                                <input name="file_type" type="text" class="form-control" id="file_type" placeholder="Enter File Type !">                           
                             </div>
                             <div class="mb-3">
-                                <label class="form-label" for="name">File Name</label>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter Category Name !" onChange="setAlias()">
-                                <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>                            
+                                <label class="form-label" for="file_name">File Name</label>
+                                <input name="file_name" type="text" class="form-control" id="file_name" placeholder="Enter Name !">                       
                             </div>
                         </div>                      
                         <!-- collapse is file end -->
 
                         <!-- collapse is link start  -->
                         <div class="my-3 collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseLink" aria-expanded="false" aria-controls="collapseExampleLink">
-                            <input type="checkbox" id="is_default" name="is_default" value="1"> 
-                            <label for="is_default">Link Type</label>
+                            <input type="checkbox" id="link_type" name="link_type" value="1"> 
+                            <label for="link_type">Link Type</label>
                         </div>
                         <div class="border p-2 collapse" id="collapseLink" style="">
                             <div class="mb-3">
@@ -85,9 +83,8 @@
                                 <label for="is_target_blank">Is Target Blank?</label>             
                             </div>                        
                             <div class="mb-3">
-                                <label class="form-label" for="name">Custom Link</label>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter Category Name !" onChange="setAlias()">
-                                <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>                            
+                                <label class="form-label" for="custom_link">Custom Link</label>
+                                <input name="custom_link" type="text" class="form-control" id="custom_link" placeholder="Enter Custom Url !">                          
                             </div>
                         </div>                      
                         <!-- collapse is link end -->
@@ -99,9 +96,8 @@
                         </div>
                         <div class="border p-2 collapse" id="collapseOrganization" style="">
                             <div class="mb-3">
-                                <label class="form-label" for="name">Organization Id</label>
-                                <input name="name" type="text" class="form-control" id="name" placeholder="Enter Category Name !" onChange="setAlias()">
-                                <span class="text-danger font-weight-bold">{{$errors->has('name') ? $errors->first('name') : ' '}}</span>                            
+                                <label class="form-label" for="organization_id">Organization Id</label>
+                                <input name="organization_id" type="text" class="form-control" id="organization_id" placeholder="Enter Organization ID !">                         
                             </div>
                             <div class="mb-3">
                                 <label class="form-label" for="name">Organization Name</label>
