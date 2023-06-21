@@ -24,7 +24,7 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
 
 
 // admin routes 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index1'])->name('dashboard');
+Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'dashboard'])->name('dashboard');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('auth');
 Route::get('/my.my-news', [App\Http\Controllers\HomeController::class, 'publicNews']);

@@ -28,7 +28,17 @@ class HomeController extends Controller
     public function index()
     {
         $data = array(
-            'theme' => 'comone',
+            'theme' => 'bs5-theme',
+            'title' => 'SBPedia',
+
+        );
+        return view('index', $data);
+    }
+
+    public function dashboard()
+    {
+        $data = array(
+            'theme' => 'bs5-theme',
             'title' => 'SBPedia',
 
         );
